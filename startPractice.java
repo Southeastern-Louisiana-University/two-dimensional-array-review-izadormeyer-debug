@@ -30,7 +30,7 @@ public class startPractice{
             }
         }
         displayArray(myList);
-        sumElements(myList);
+        sumAllElements(myList);
     }
 
     public static void displayArray (int [][] matrix){
@@ -44,7 +44,7 @@ public class startPractice{
         }
     }
 
-    public static void sumElements (int [][] matrix){
+    public static void sumAllElements (int [][] matrix){
         // display the array
 
         int total = 0;
@@ -56,5 +56,50 @@ public class startPractice{
         }
         System.out.println("the total of all array elements is " + total)
     }
+
+    public static void sumColumnElements (int [][] matrix){
+        // total of all values in each column
+
+
+
+        for(int column = 0; column < matrix[0].length; column++){
+
+            int total = 0;
+
+            for(int row = 0; row < matrix.length; row++) {
+                total += matrix[row][column];
+            }
+        }
+        System.out.println("the total of column " + column "  is " + total)
+    }
+
+    public static void sumRowElements (int [][] matrix){
+        // total of all values in each row
+
+        int maxRow = 0;
+        int indexOfMaxRow = 0;
+
+
+
+        for(int column = 0; column < matrix[0].length; column++){
+            maxRow += matrix[0][column];
+        }
+
+        for(int row = 1; row < matrix.length; row++){
+            int totalOfThisRow = 0;
+            for(int column = 0; column < matrix[row].length; column++){
+                totalOfThisRow += matrix[row][column];
+
+                if(totalOfThisRow > maxRow){
+                    maxRow = totalOfThisRow;
+                    indexOfMaxRow = row;
+                }
+            }
+        }
+
+        System.out.println("Row " + indexOfMaxRow + " has the maximum sum of " + maxRow);
+
+    }
+
 
 }
